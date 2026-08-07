@@ -11,8 +11,8 @@ package com.twitter.service.snowflake
 class InvalidSystemClock(val message: String) extends Exception;
 
 class IdWorker(val workerId: Long, val datacenterId: Long, var sequence: Long = 0L,
-  val logInfo: (String => Unit) = { _: String => () },
-  val logError: (String => Unit) = { _: String => () }) {
+  val logInfo: (String => Unit) = { (_: String) => () },
+  val logError: (String => Unit) = { (_: String) => () }) {
   val twepoch = 1288834974657L
 
   private[this] val workerIdBits = 5L
